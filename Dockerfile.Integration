@@ -1,3 +1,3 @@
 FROM maven:3.6-jdk-8
-
-ENTRYPOINT ["mvn", "test"]
+COPY . /ciTest
+ENTRYPOINT ["mvn", "-DforkCount=0","-B", "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn","-f","/ciTest/pom.xml","test"]
