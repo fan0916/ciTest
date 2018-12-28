@@ -17,7 +17,6 @@ public class CiTestApplicationTests {
 	@Test
 	public void contextLoads() {
 		for (int i = 0; i < 50000; i++) {
-			System.out.println(i);
 			redisTemplate.opsForValue().set(String.valueOf(i), String.valueOf(i));
 		}
 	}
